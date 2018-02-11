@@ -23,6 +23,7 @@ export default class App extends React.Component {
     this.toggleCamera = this.toggleCamera.bind(this)
     this.selectedPhoto = this.selectedPhoto.bind(this)
     this.idFish = this.idFish.bind(this)
+    this.goHome = this.goHome.bind(this)
   }
 
   toggleCamera() {
@@ -34,6 +35,13 @@ export default class App extends React.Component {
       selectedPhotos: photoUris,
       scene1: false,
       scene2: true
+    })
+  }
+
+  goHome() {
+    this.setState({
+      scene1: true,
+      showCamera: false,
     })
   }
 
@@ -53,7 +61,7 @@ export default class App extends React.Component {
     } else if (!this.state.scene1 && this.state.scene2) {
       content =  <SelectedPhoto photos={this.state.selectedPhotos} idFish={this.idFish} />
     } else if (!this.state.scene1 && !this.state.scene2) {
-      content = <IdFish photo={this.state.selectedPhotos[0]} fishId='Morone americana' desc={DESC}/>
+      content = <IdFish photo={this.state.selectedPhotos[0]} fishId='Morone americana' desc={DESC} goHome={this.goHome}/>
     }
     return (
       <View style={styles.container}>
@@ -68,7 +76,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'powderblue'
+    backgroundColor: '#eb2b2e'
   },
   selected: {
     flex: 1,

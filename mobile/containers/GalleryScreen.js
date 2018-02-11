@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, StyleSheet, View, TouchableOpacity, Text, ScrollView, TouchableHighlight, Button } from 'react-native'
 import { FileSystem } from 'expo'
 
-const pictureSize = 150
+const pictureSize = 250
 
 export default class GalleryScreen extends React.Component {
   constructor (props) {
@@ -26,13 +26,21 @@ export default class GalleryScreen extends React.Component {
 
   render () {
     return (
+      <View style={{flex: 1}}>
+        <Image
+          style={{resizeMode: 'cover', width: '100%', height: '100%', flex: 1, position: 'absolute'}}
+          source={require('../images/bg.png')} />
       <View style={styles.container}>
         <View style={styles.nav}>
           <TouchableOpacity style={styles.backButton} onPress={this.props.onPress}>
-            <Text>Back</Text>
+            <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.nextButton} onPress={() => this.props.next(this.state.selectedPhoto)}>
-            <Text style={styles.nextText}>Next</Text>
+            {
+              this.state.selectedPhoto.length
+              ? <Text style={styles.nextText}>Next</Text>
+              : null
+            }
           </TouchableOpacity>
       </View>
         <ScrollView contentComponentStyle={{ flex: 1 }}>
@@ -46,14 +54,14 @@ export default class GalleryScreen extends React.Component {
                     uri: `${FileSystem.documentDirectory}photos/${photoUri}`
                   }}
                 />
-                <Button color='white'
+                <Button color='#eb2b2e'
                   onPress={() => this.setState({selectedPhoto: [...this.state.selectedPhoto, photoUri]})}
                   title={this.state.selectedPhoto.includes(photoUri) ? "Selected" : "Select"}></Button>
               </View>
             ))}
           </View>
         </ScrollView>
-
+      </View>
       </View>
     );
   }
@@ -63,7 +71,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: 'beige'
   },
   pictures: {
     flex: 1,
@@ -77,11 +84,13 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     resizeMode: 'contain',
+    borderRadius: 5
   },
   pictureWrapper: {
     width: pictureSize,
     height: pictureSize,
     margin: 5,
+    borderRadius: 5
   },
   facesContainer: {
     position: 'absolute',
@@ -108,12 +117,12 @@ const styles = StyleSheet.create({
   },
   nav: {
     flexDirection: 'row',
+    marginBottom: 10
   },
   backButton: {
     flex: 2,
     padding: 20,
     marginBottom: 4,
-    backgroundColor: 'skyblue',
     height: 50
   },
   nextButton: {
@@ -121,10 +130,18 @@ const styles = StyleSheet.create({
     padding: 20,
     marginRight: 0,
     marginBottom: 4,
-    backgroundColor: 'skyblue',
     height: 50
   },
   nextText: {
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
+    color: '#f9e33a',
+    fontWeight: 'bold',
+    fontSize: 25
+  },
+  backText: {
+    color: '#f9e33a',
+    fontWeight: 'bold',
+    fontSize: 25
   }
+
 });

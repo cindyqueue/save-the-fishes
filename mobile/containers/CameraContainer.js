@@ -364,10 +364,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   picButton: {
-    backgroundColor: 'darkseagreen',
+    backgroundColor: '#b62124',
   },
   galleryButton: {
-    backgroundColor: 'powderblue',
+    backgroundColor: '#2f3192',
   },
   facesContainer: {
     position: 'absolute',

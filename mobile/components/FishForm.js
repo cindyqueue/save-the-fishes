@@ -13,15 +13,15 @@ export default class FishForm extends React.Component {
   render() {
     return (
       <View>
-        <Text>Size (cm)</Text>
+        <Text style={{fontSize: 20, color: '#2f3192'}}>Size (cm)</Text>
         <TextInput
-          style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
+          style={{height: 40, width:200, borderColor: '#2f3192', borderWidth: 1, backgroundColor: 'white'}}
           onChangeText={(text) => this.setState({size: text})}
           value={this.state.size}
         />
-        <Text>Location</Text>
+        <Text style={{fontSize: 20, color: '#2f3192'}}>Location</Text>
         <TextInput
-          style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
+          style={{height: 40, width:200, borderColor: '#2f3192', borderWidth: 1, backgroundColor: 'white'}}
           onChangeText={(text) => this.setState({location: text})}
           value={this.state.location}
         />

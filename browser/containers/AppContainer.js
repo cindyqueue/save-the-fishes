@@ -26,7 +26,7 @@ export default class AppContainer extends React.Component {
     //      .catch(err => console.log(err))
     this.setState({
       showSpecies: true,
-      species: 'Goldfish'
+      species: 'Morone americana'
     })
   }
 

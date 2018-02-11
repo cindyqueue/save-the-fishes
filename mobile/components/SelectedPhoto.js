@@ -25,8 +25,16 @@ export default class extends React.Component {
   }
   render () {
     return (
+      <View style={{flex: 1}}>
+        <Image
+          style={{resizeMode: 'cover', width: '100%', height: '100%', flex: 1, position: 'absolute'}}
+          source={require('../images/bg.png')} />
       <View style={styles.container}>
-        <Text style={styles.header}>Who's That Fish?</Text>
+        <View style={styles.pictureWrapperTitle}>
+          <Image
+            style={styles.pictureTitle}
+            source={require('../images/title.gif')} />
+        </View>
         <View style={styles.pictureWrapper}>
           <Image
             style={styles.picture}
@@ -37,7 +45,7 @@ export default class extends React.Component {
         {
           this.state.showForm
           ? <FishForm />
-          : <Button title="Add more info" onPress={() => this.setState({showForm: true})} />
+          : <Button title="Add more info" color='white' onPress={() => this.setState({showForm: true})} />
         }
         <View style={styles.buttonContainer}>
           <Text
@@ -52,6 +60,7 @@ export default class extends React.Component {
           : null
         }
       </View>
+    </View>
     )
 
   }
@@ -62,6 +71,15 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 30,
     fontWeight: 'bold'
+  },
+  pictureTitle: {
+    width: 300,
+    height: 150,
+    resizeMode: 'contain',
+  },
+  pictureWrapperTitle: {
+    margin: 0,
+    marginBottom: -20
   },
   container: {
     flex: 1,
@@ -82,15 +100,17 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   buttonContainer: {
-    backgroundColor: 'darkgrey',
+    backgroundColor: '#f9e33a',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
     width: 200,
-    margin: 20
+    margin: 20,
+    borderColor: 'black',
+    borderRadius: 5
   },
   button: {
-    color: '#ffffff',
+    color: '#2f3192',
     fontSize: 20,
     fontWeight: 'bold'
   }
