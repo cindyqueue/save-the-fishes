@@ -1,10 +1,20 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('bg.png');
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .drop-fish-container {
 }
 
+.fish-img-container {
+  background-image: url('fish.gif');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 50px;
+}
 .fish-img {
   width: 100%;
 }
@@ -12,7 +22,7 @@ body {
 .drop-fish-img {
   width: 100%;
   height: 20vh;
-  border: 1px black solid;
+  /*border: 1px black solid;*/
 }
 
 .app-container {
@@ -22,7 +32,14 @@ body {
 }
 
 .header {
-  text-align: center;
+  background-size: contain;
+  background-image: url(title.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100px;
+}
+.header > h2 {
+  display:hidden;
 }
 
 .fish-form {
@@ -60,9 +77,10 @@ body {
   width: 100%;
   margin-top: 4%;
   height: 3em;
-  background: royalblue;
+  background: #f9e33a;
   font-size: 1em;
-  border: none;
+  border-radius:10px;
+  border: 1px solid #1a2b96;
 }
 
 .clearfix:after {

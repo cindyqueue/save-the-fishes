@@ -32,7 +32,7 @@ export default class extends React.Component {
           <input className='fish-form-input-loc' name='location' onChange={this.handleChange} />
         </div>
         <div className='clearfix' />
-        <button className='fish-form-btn' type='submit' onClick={this.sumbitFish}>ID FISH!</button>
+        <button className='fish-form-btn' type='submit' onClick={this.sumbitFish}>Identify Fish</button>
       </form>
     )
   }
